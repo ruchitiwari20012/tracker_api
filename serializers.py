@@ -11,27 +11,13 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['mobile_no']
-        validators = [
-            UniqueTogetherValidator(
-                queryset=User.objects.all(),
-                fields=['mobile_no']
-            )
-        ]
         
-class UserSerializer1(serializers.ModelSerializer):
+class UserDetailsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
         fields = ["first_name","last_name","email","role","profile_photo"]
-        
-        
-# class UserSerializer(RetrieveAPIView):
-#     pagination_class = (IsAuthenticated,)
-#     serializer_class = UserSerializer
 
-#     def get_object(self):
-#         return self.request.user
-  
 
  
 
